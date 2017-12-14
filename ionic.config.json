@@ -1,0 +1,8 @@
+{
+  "name": "jci-madurai",
+  "app_id": "ff8921a0",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
