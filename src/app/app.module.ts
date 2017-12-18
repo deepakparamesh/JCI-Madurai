@@ -2,6 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+// import { }
 
 //components
 import { MyApp } from './app.component';
@@ -11,13 +12,22 @@ import { BusinessPage } from '../pages/business/business';
 import { LoginPage } from '../pages/login/login';
 import { AboutDevelopers } from '../pages/about-developers/about-developers';
 import { TabsPage } from '../pages/tabs/tabs';
-// import { ListPage } from '../pages/list/list';
-// import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
 import { ContactPage } from '../pages/contact/contact';
+import { SignUpPage } from '../pages/sign-up/sign-up';
+import { AboutPage } from '../pages/about/about';
 
 //providers
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyDrOcq3AmlXwnhmQNedtt8OFG7XZxQx9_g",
+   authDomain: "fir-learn-b0877.firebaseapp.com",
+   databaseURL: "https://fir-learn-b0877.firebaseio.com",
+   projectId: "fir-learn-b0877",
+   storageBucket: "fir-learn-b0877.appspot.com",
+   messagingSenderId: "400708869257"
+}
 
 @NgModule({
   declarations: [
@@ -28,9 +38,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     LoginPage,
     AboutDevelopers,
     TabsPage,
-    ContactPage
-    // ListPage,
-    // HelloIonicPage,
+    ContactPage,
+    SignUpPage,
+    AboutPage
   ],
   imports: [
     BrowserModule,
@@ -45,9 +55,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     LoginPage,
     AboutDevelopers,
     TabsPage,
-    ContactPage
-    // ListPage,
-    // HelloIonicPage,
+    ContactPage,
+    SignUpPage,
+    AboutPage
   ],
   providers: [
     StatusBar,

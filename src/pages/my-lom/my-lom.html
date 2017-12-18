@@ -7,6 +7,22 @@
   </ion-navbar>
 </ion-header>
 
+
+
 <ion-content padding>
   <h2>My Lom page is going to assemble here.</h2>
+
+  <ion-buttons end>
+  <button ion-button icon-only (click)="addSong()">
+    <ion-icon name="add"></ion-icon>
+  </button>
+  </ion-buttons>
+
+  <ion-list>
+  <ion-item *ngFor="let song of songs | async">
+    {{song.title}}
+  </ion-item>
+</ion-list>
+
+<!-- <ion-item *ngFor="let song of songs | async" (click)="showOptions(song.id, song.title)"> -->
 </ion-content>
