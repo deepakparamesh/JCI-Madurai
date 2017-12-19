@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color='primary'>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -8,19 +8,21 @@
 </ion-header>
 
 <ion-content padding>
+  
   <ion-list>
 
   <ion-item>
-    <ion-label floating>Username</ion-label>
-    <ion-input type="text"></ion-input>
+    <ion-label floating>email</ion-label>
+    <ion-input type="text" [(ngModel)] ="user.email"></ion-input>
   </ion-item>
 
   <ion-item>
-    <ion-label floating>Password</ion-label>
-    <ion-input type="password"></ion-input>
+    <ion-label floating>password</ion-label>
+    <ion-input type="password" [(ngModel)]="user.password"></ion-input>
   </ion-item>
 
 </ion-list>
-  <button ion-button color='primary'>Login</button>
+  
+  <button ion-button color='primary' (click)="login(user)">Login</button>
   <button ion-button color='light'(click)="registerPage()">Register</button>
 </ion-content>

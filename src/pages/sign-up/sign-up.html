@@ -10,28 +10,38 @@
 <ion-content>
   <ion-list>
 
-  <ion-item>
+  <!-- <ion-item>
       <ion-label floating>Name</ion-label>
       <ion-input type="text"></ion-input>
-  </ion-item>
+  </ion-item> -->
+
+  <!-- <ion-item>
+    <ion-label floating>user name</ion-label>
+    <ion-input type="string" [(ngModel)] = "user.userName"></ion-input>
+  </ion-item> -->
 
   <ion-item>
     <ion-label floating>E-mail</ion-label>
-    <ion-input type="email"></ion-input>
+    <ion-input type="email" [(ngModel)] = "user.email"></ion-input>
   </ion-item>
-
+<!-- 
   <ion-item>
-    <ion-label floating>Username</ion-label>
-    <ion-input type="text"></ion-input>
-  </ion-item>
+    <ion-label floating>Phone Number</ion-label>
+    <ion-input type="number" [(ngModel)] = "user.phone"></ion-input>
+  </ion-item> -->
 
   <ion-item>
     <ion-label floating>Password</ion-label>
-    <ion-input type="password"></ion-input>
+    <ion-input type="password" [(ngModel)] = "user.password"></ion-input>
   </ion-item>
 
+  <!-- <ion-item>
+    <ion-label floating>Confirm Password</ion-label>
+    <ion-input type="password" [(ngModel)] = "user.confirmPassword"></ion-input>
+  </ion-item> -->
+
   <ion-item>
-    <button ion-button block>Create an Account</button>
+    <button ion-button block (click)="signUp(user)">Create an Account</button>
   </ion-item>
 
 </ion-list>

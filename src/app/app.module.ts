@@ -2,7 +2,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-// import { }
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { FIREBASE_CONFIG } from './app.firebase.config';
 
 //components
 import { MyApp } from './app.component';
@@ -20,15 +22,6 @@ import { AboutPage } from '../pages/about/about';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-export const firebaseConfig = {
-  apiKey: "AIzaSyDrOcq3AmlXwnhmQNedtt8OFG7XZxQx9_g",
-   authDomain: "fir-learn-b0877.firebaseapp.com",
-   databaseURL: "https://fir-learn-b0877.firebaseio.com",
-   projectId: "fir-learn-b0877",
-   storageBucket: "fir-learn-b0877.appspot.com",
-   messagingSenderId: "400708869257"
-}
-
 @NgModule({
   declarations: [
     MyApp,
@@ -45,6 +38,8 @@ export const firebaseConfig = {
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(FIREBASE_CONFIG),
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
