@@ -3,9 +3,9 @@ import { NavController, NavParams} from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth'
 
 import {SignUpPage} from '../sign-up/sign-up';
-import { Users } from '../../models/users'
-import { HomePage } from '../home/home'
-
+import { Users } from '../../models/users';
+import { HomePage } from '../home/home';
+import { ProfilePage } from '../profile/profile';
 
 @Component({
   selector : 'page-login',
@@ -27,7 +27,7 @@ export class LoginPage {
       const result = this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password);
       console.log(result);
       if(result){
-      this.navCtrl.setRoot(HomePage);
+      this.navCtrl.push(ProfilePage);
       }
     }
   

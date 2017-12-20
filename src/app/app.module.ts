@@ -4,8 +4,8 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { FIREBASE_CONFIG } from './app.firebase.config';
-
 //components
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -17,6 +17,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { ContactPage } from '../pages/contact/contact';
 import { SignUpPage } from '../pages/sign-up/sign-up';
 import { AboutPage } from '../pages/about/about';
+import { ProfilePage } from '../pages/profile/profile';
 
 //providers
 import { StatusBar } from '@ionic-native/status-bar';
@@ -33,13 +34,15 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TabsPage,
     ContactPage,
     SignUpPage,
-    AboutPage
+    AboutPage,
+    ProfilePage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -52,7 +55,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TabsPage,
     ContactPage,
     SignUpPage,
-    AboutPage
+    AboutPage, 
+    ProfilePage
   ],
   providers: [
     StatusBar,
