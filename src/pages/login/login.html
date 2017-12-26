@@ -8,21 +8,30 @@
 </ion-header>
 
 <ion-content padding>
-  
-  <ion-list>
+    <ion-list>
+        <form [formGroup]="loginForm">
 
-  <ion-item>
-    <ion-label floating>email</ion-label>
-    <ion-input type="text" [(ngModel)] ="user.email"></ion-input>
-  </ion-item>
+          <ion-item>
+            <ion-label floating>email</ion-label>
+            <ion-input type="text" formControlName="email" [(ngModel)] ="user.email"></ion-input>
+          </ion-item>
+          
+          <ion-item *ngIf="!loginForm.controls.email.valid && (loginForm.controls.email.dirty || submitAttempt)">
+              <p>Please enter a valid email</p>
+          </ion-item>
 
-  <ion-item>
-    <ion-label floating>password</ion-label>
-    <ion-input type="password" [(ngModel)]="user.password"></ion-input>
-  </ion-item>
+          <ion-item>
+            <ion-label floating>password</ion-label>
+            <ion-input formControlName="password" type="password" [(ngModel)]="user.password"></ion-input>
+          </ion-item>
 
-</ion-list>
-  
-  <button ion-button color='primary' (click)="login(user)">Login</button>
-  <button ion-button color='light'(click)="registerPage()">Register</button>
+         <ion-item *ngIf="!loginForm.controls.password.valid && (loginForm.controls.password.dirty || submitAttempt)">
+           <p>Please enter your password</p>
+         </ion-item>
+
+        </form>
+    </ion-list>
+      
+      <button ion-button color='primary' (click)="loginUser(user)">Login</button>
+      <button ion-button color='light'(click)="registerPage()">Register</button>
 </ion-content>

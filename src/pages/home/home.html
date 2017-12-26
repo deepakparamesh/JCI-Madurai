@@ -8,20 +8,11 @@
 </ion-header>
 
 <ion-content padding>
-    <ion-card >
-        <img src=".././assets/imgs/vision.png"/>
-    </ion-card>
-
-    <ion-card>
-        <img src=".././assets/imgs/mission.png"/>
-        <ion-card-content>
-          <ion-card-title>
-            Future Events
-            </ion-card-title>
-          <p>
-          The events that is going to occur on the future will appear here!!
-          </p>
-        </ion-card-content>
-      </ion-card>
-
+  
+  <ion-slides autoplay="10" loop="true" speed="3000" height="50%">
+    <ion-slide *ngFor="let image of ImageArray">
+      <img src="{{image.image}}" imageViewer padding="10"/>
+    </ion-slide>
+  </ion-slides>
+  
 </ion-content>
