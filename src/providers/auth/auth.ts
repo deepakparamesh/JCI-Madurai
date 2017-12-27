@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import firebase from 'firebase';
 import { Users } from '../../models/users'
-
+import { tokenNotExpired } from 'angular2-jwt';
 @Injectable()
 export class AuthProvider{
     constructor(){
@@ -31,4 +31,11 @@ export class AuthProvider{
     loginUser( user: Users) : Promise<firebase.User>{
         return firebase.auth().signInWithEmailAndPassword(user.email, user.password);
     }
+
+    loggedIn(){
+        return tokenNotExpired();
+    }
+
+    
+
 }
