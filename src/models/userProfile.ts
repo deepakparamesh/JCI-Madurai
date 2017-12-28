@@ -1,4 +1,6 @@
 export interface UserProfile{
     userName: string, 
-    phoneNumber : number
+    phoneNumber : number,
+    email : string
+    // dateOfBirth:   
 }

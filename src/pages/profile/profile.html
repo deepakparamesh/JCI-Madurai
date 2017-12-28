@@ -5,28 +5,66 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
-  <ion-navbar>
+  <ion-navbar color='primary'>
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+      </button>
     <ion-title>profile</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 
 <ion-content padding>
-  <h3>please setup your profile</h3>
+  <h3>Personal Information</h3>
+  
   <ion-item>
-    <ion-label floating>User Name</ion-label>
-    <ion-input type="text" [(ngModel)]="userProfile.userName"></ion-input>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6> Name </ion-col>
+        <ion-col col-6>
+          {{userProfile?.userName}} 
+        </ion-col>
+      </ion-row>
+
+      
+    </ion-grid>
   </ion-item>
 
-  <ion-item>
-      <ion-label floating>Phone Number</ion-label>
-      <ion-input type="number" [(ngModel)]="userProfile.phoneNumber"></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-6>Phone</ion-col>
+          <ion-col col-6>
+            {{userProfile?.phoneNumber}}
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+
+    <ion-item>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-6>Email</ion-col>
+          <ion-col col-6 *ngIf="userProfile?.email">
+            {{userProfile?.email}}
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+
+    <!-- <ion-item>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-6>Password</ion-col>
+          <ion-col col-6>
+            {{userProfile?.phoneNumber}}
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item> -->
 
   <ion-item>
-    <button ion-button block (click)="registerProfile()">Save my profile</button>
+    <button ion-button block (click)="logout()">logout</button>
   </ion-item>
 
   

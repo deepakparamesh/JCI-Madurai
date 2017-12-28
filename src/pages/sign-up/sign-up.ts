@@ -2,17 +2,17 @@ import { Component } from '@angular/core';
 import { NavController, NavParams,
          ToastController, Loading,
          LoadingController} from 'ionic-angular';
+import firebase from 'firebase/app';
 
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Users } from '../../models/users';
 import { AuthProvider } from '../../providers/auth/auth';
-import firebase from 'firebase/app';
 import { HomePage } from '../home/home';
+import { CreateProfilePage } from '../create-profile/create-profile';
 //validators
 import { CheckboxValidator } from '../../validators/checkbox';
 import { EmailValidator } from '../../validators/email-validator';
-import { ProfilePage } from '../profile/profile';
 // import { ConfirmPassword } from '../../validators/confirm-password';
 
 @Component({
@@ -51,12 +51,12 @@ export class SignUpPage {
       const loading : Loading = this.loadingCtrl.create();
       loading.present();
       try{
-        const signupUser: firebase.User = await this.authProvider
+        const signupUser: void = await this.authProvider
         .signupUser(user);
         await loading.dismiss();
         // this.navCtrl.setRoot(HomePage);
         this.toastMessager('successfully registered!');
-        this.navCtrl.push(ProfilePage);
+        this.navCtrl.setRoot(CreateProfilePage);
       }catch(error){
         await loading.dismiss();
         this.toastMessager('email already exists');

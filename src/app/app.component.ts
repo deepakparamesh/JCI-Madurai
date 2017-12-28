@@ -3,8 +3,8 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-// import * as firebase from "firebase";
-
+import firebase, { Unsubscribe } from "firebase";
+import { FIREBASE_CONFIG } from './app.firebase.config';
 //pages
 import { HomePage } from '../pages/home/home';
 import { MyLomPage } from '../pages/my-lom/my-lom';
@@ -13,6 +13,7 @@ import { LoginPage } from '../pages/login/login';
 import { AboutDevelopers } from '../pages/about-developers/about-developers';
 import { TabsPage } from '../pages/tabs/tabs';
 import { ContactPage } from '../pages/contact/contact';
+import { ProfilePage } from '../pages/profile/profile';
 // import { ListPage } from '../pages/list/list';
 // import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
 
@@ -25,8 +26,8 @@ import { AuthProvider } from '../providers/auth/auth';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = TabsPage ;
-  // rootPage : any = HelloIonicPage;
+  rootPage: any  ;
+  // rootPage : any = TabsPage;
 
   pages: Array<{title: string, component: any}>;
 
@@ -34,24 +35,27 @@ export class MyApp {
     public splashScreen: SplashScreen, public authProvider: AuthProvider) {
     this.initializeApp();
 
-    // const unsubscribe = firebase.auth().onAuthStateChanged(user => {
-    //   if(!user){
-    //     this.rootPage = 'LoginPage';
-    //     unsubscribe();
-    //   }else {
-    //     this.rootPage = 'TabsPage';
-    //     unsubscribe();
-    //   }
-    // });
+    firebase.initializeApp(FIREBASE_CONFIG);
+    const unsubscribe: Unsubscribe = firebase
+    .auth()
+    .onAuthStateChanged(user => {
+      if(!user){
+        this.rootPage = LoginPage;
+        unsubscribe();
+      }else {
+        this.rootPage = TabsPage ;
+        unsubscribe();
+      }
+    });
 
     // used for an example of ngFor and navigation
     this.pages = [
       {title: 'Home', component: TabsPage},
       {title : 'My Lom', component : MyLomPage},
       {title : 'Business' ,component : BusinessPage},
-      {title : 'Login/Sign Up', component : LoginPage},
+      {title : 'Profile', component : ProfilePage},
       {title : 'About Developers', component: AboutDevelopers},
-
+      
       // { title: 'List', component: ListPage },
       // { title: 'Hello Ionic', component : HelloIonicPage},
       // {title : 'contact', component: ContactPage},
@@ -60,8 +64,6 @@ export class MyApp {
 
   initializeApp() {
     this.platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });

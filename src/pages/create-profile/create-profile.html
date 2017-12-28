@@ -1,0 +1,35 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>create-profile</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list>
+    <form [formGroup]="createProfileForm">
+
+      <ion-item>
+        <ion-label floating>user name</ion-label>
+        <ion-input type="string" formControlName="userName" [(ngModel)] = "userProfile.userName"></ion-input>
+      </ion-item>
+
+      <!-- <ion-item *ngIf="!signUpForm.controls.email.valid && (signUpForm.controls.email.dirty || submitAttempt)">
+          <p>Please enter a valid email</p>
+      </ion-item> -->
+
+      <ion-item>
+        <ion-label floating>phone</ion-label>
+        <ion-input type="number" formControlName="phoneNumber" [(ngModel)] = "userProfile.phoneNumber"></ion-input>
+      </ion-item>
+
+      <ion-item> 
+        <button ion-button block (click)="createProfile(userProfile)">Create my Profile</button>
+      </ion-item>
+
+    </form>
+  </ion-list>
+</ion-content>

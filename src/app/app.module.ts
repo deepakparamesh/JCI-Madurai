@@ -9,7 +9,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { FIREBASE_CONFIG } from './app.firebase.config';
-import * as firebase from "firebase";
+// import * as firebase from "firebase";
 
 //components
 import { MyApp } from './app.component';
@@ -23,11 +23,15 @@ import { ContactPage } from '../pages/contact/contact';
 import { SignUpPage } from '../pages/sign-up/sign-up';
 import { AboutPage } from '../pages/about/about';
 import { ProfilePage } from '../pages/profile/profile';
+import { EventsPage } from '../pages/events/events';
+import { CreateProfilePage } from '../pages/create-profile/create-profile';
 
 //providers
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AuthProvider } from '../providers/auth/auth'; 
+import { ProfileProvider } from '../providers/profile/profile';
+import { EventsProvider } from '../providers/events/events';
 
 @NgModule({
   declarations: [
@@ -41,7 +45,9 @@ import { AuthProvider } from '../providers/auth/auth';
     ContactPage,
     SignUpPage,
     AboutPage,
-    ProfilePage
+    ProfilePage,
+    EventsPage,
+    CreateProfilePage
   ],
   imports: [
     BrowserModule,
@@ -63,12 +69,16 @@ import { AuthProvider } from '../providers/auth/auth';
     ContactPage,
     SignUpPage,
     AboutPage, 
-    ProfilePage
+    ProfilePage,
+    EventsPage,
+    CreateProfilePage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     AuthProvider,
+    ProfileProvider,
+    EventsProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
