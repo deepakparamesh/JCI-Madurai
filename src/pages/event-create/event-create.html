@@ -1,0 +1,51 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Create Event</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  
+  <form [formGroup]="eventCreateForm">
+      <ion-item>
+        <ion-label floating>Event Name</ion-label>
+        <ion-input type="text" formControlName="eventName" [(ngModel)]="event.eventName"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Date</ion-label>
+        <ion-input type="text" formControlName="date" [(ngModel)]="event.eventDate" ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Time</ion-label>
+        <ion-input type="text"  formControlName="time" [(ngModel)]="event.eventTime"></ion-input>
+      </ion-item>
+
+      <ion-item>
+          <ion-label floating>Place</ion-label>
+          <ion-input type="text" formControlName="place" [(ngModel)]="event.eventPlace"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>address</ion-label>
+        <ion-input type="text" formControlName="address"  [(ngModel)]="event.eventAddress"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Description</ion-label>
+        <ion-input type="text"  formControlName="description" [(ngModel)]="event.description"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Guests</ion-label>
+        <ion-input type="text" formControlName="guests" [(ngModel)]="event.guests"></ion-input>
+      </ion-item>
+
+      <button ion-button block [disabled]="!eventCreateForm.valid" (click)="createEvent(event)">Create an Event  </button>
+  </form>
+</ion-content>

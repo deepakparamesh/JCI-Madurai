@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 
 import {HomePage} from '../home/home';
 import { AboutPage } from '../about/about';
-import { EventsPage } from '../events/events';
+import { EventListPage } from '../event-list/event-list';
 @Component({
   templateUrl : 'tabs.html'
 })
@@ -10,7 +10,7 @@ import { EventsPage } from '../events/events';
 export class TabsPage {
 
   tab1 = HomePage;
-  tab2 = EventsPage;
+  tab2 = EventListPage;
   tab3 = AboutPage;
 
   constructor(){

@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { EventsProvider } from  '../../providers/events/events';
+import { EventsProvider } from  '../../providers/events/events.provider';
+import { EventCreatePage } from '../event-create/event-create';
+
+
 /**
- * Generated class for the EventsPage page.
+ * Generated class for the EventListPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,15 +13,15 @@ import { EventsProvider } from  '../../providers/events/events';
 
 @IonicPage()
 @Component({
-  selector: 'page-events',
-  templateUrl: 'events.html',
+  selector: 'page-event-list',
+  templateUrl: 'event-list.html',
 })
-export class EventsPage {
-  public eventList: Array<any>;
+export class EventListPage {
 
+  public eventList: Array<any>;
+  
   constructor(public navCtrl: NavController, public navParams: NavParams,
-              public eventProvider: EventsProvider) {
-    
+    public eventProvider: EventsProvider) {
   }
 
   ionViewDidLoad() {
@@ -35,5 +38,8 @@ export class EventsPage {
         });
     });
   }
-
+  
+  goToCreateEvent(){
+    this.navCtrl.push( EventCreatePage);
+  }
 }

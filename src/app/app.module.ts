@@ -23,15 +23,17 @@ import { ContactPage } from '../pages/contact/contact';
 import { SignUpPage } from '../pages/sign-up/sign-up';
 import { AboutPage } from '../pages/about/about';
 import { ProfilePage } from '../pages/profile/profile';
-import { EventsPage } from '../pages/events/events';
 import { CreateProfilePage } from '../pages/create-profile/create-profile';
+import { EventListPage } from '../pages/event-list/event-list';
+import { EventCreatePage } from '../pages/event-create/event-create';
 
 //providers
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AuthProvider } from '../providers/auth/auth'; 
 import { ProfileProvider } from '../providers/profile/profile';
-import { EventsProvider } from '../providers/events/events';
+import { EventsProvider } from '../providers/events/events.provider';
+import { EventListener } from '@angular/core/src/debug/debug_node';
 
 @NgModule({
   declarations: [
@@ -46,8 +48,9 @@ import { EventsProvider } from '../providers/events/events';
     SignUpPage,
     AboutPage,
     ProfilePage,
-    EventsPage,
-    CreateProfilePage
+    CreateProfilePage,
+    EventCreatePage,
+    EventListPage
   ],
   imports: [
     BrowserModule,
@@ -70,8 +73,9 @@ import { EventsProvider } from '../providers/events/events';
     SignUpPage,
     AboutPage, 
     ProfilePage,
-    EventsPage,
-    CreateProfilePage
+    CreateProfilePage,
+    EventCreatePage,
+    EventListPage
   ],
   providers: [
     StatusBar,
