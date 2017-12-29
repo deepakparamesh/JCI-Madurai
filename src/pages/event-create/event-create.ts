@@ -2,15 +2,9 @@
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 
-//models
+//models and providers
 import { Events } from '../../models/events.model';
-
-/**
- * Generated class for the EventCreatePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { EventsProvider } from '../../providers/events/events.provider';
 
 @IonicPage()
 @Component({
@@ -24,7 +18,7 @@ export class EventCreatePage {
   public eventCreateForm : FormGroup;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-  public formBuilder : FormBuilder) {
+  public formBuilder : FormBuilder, public eventProvider: EventsProvider) {
     
     this.eventCreateForm = this.formBuilder.group({
       eventName :['', Validators.compose([Validators.required])],
@@ -42,7 +36,10 @@ export class EventCreatePage {
   }
 
   createEvent(event : Events) : void{
-    console.log( event );
-    
+    this.eventProvider
+      .createEvent(event)
+      .then(newEvent => {
+        this.navCtrl.pop();
+      });
   }
 }

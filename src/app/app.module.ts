@@ -26,7 +26,9 @@ import { ProfilePage } from '../pages/profile/profile';
 import { CreateProfilePage } from '../pages/create-profile/create-profile';
 import { EventListPage } from '../pages/event-list/event-list';
 import { EventCreatePage } from '../pages/event-create/event-create';
-
+import { EventEditPage } from '../pages/event-edit/event-edit';
+// import { EventDetailPage } from '../pages/event-detail/event-detail';
+import { EventDetailPageModule } from '../pages/event-detail/event-detail.module';
 //providers
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -50,7 +52,9 @@ import { EventListener } from '@angular/core/src/debug/debug_node';
     ProfilePage,
     CreateProfilePage,
     EventCreatePage,
-    EventListPage
+    EventListPage,
+    EventEditPage,
+    // EventDetailPage
   ],
   imports: [
     BrowserModule,
@@ -59,6 +63,7 @@ import { EventListener } from '@angular/core/src/debug/debug_node';
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     IonicImageViewerModule
+    // EventDetailPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -75,7 +80,9 @@ import { EventListener } from '@angular/core/src/debug/debug_node';
     ProfilePage,
     CreateProfilePage,
     EventCreatePage,
-    EventListPage
+    EventListPage,
+    EventEditPage,
+    // EventDetailPage
   ],
   providers: [
     StatusBar,

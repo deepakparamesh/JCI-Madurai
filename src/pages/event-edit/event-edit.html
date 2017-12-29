@@ -1,0 +1,81 @@
+<!--
+  Generated template for the EventEditPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Edit {{ currentEvent?.name }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding> 
+  <ion-list>
+
+    <ion-item (click)="updateName()">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-6>Name</ion-col>
+          <ion-col col-6 >
+            {{ currentEvent?.eventName }}
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+
+    <ion-item>
+        <ion-label class="dob-label">Date</ion-label>
+        <ion-datetime displayFormat="MMM D, YYYY" pickerFormat="D MMM YYYY" 
+        [(ngModel)]="date" (ionChange)="updateDate(date)">{{currentEvent?.eventDate}}</ion-datetime>
+    </ion-item>
+
+    <ion-item (click)="updatePlace()">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-6>Place</ion-col>
+          <ion-col col-6>
+            {{ currentEvent?.eventPlace }}
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+
+    <ion-item (click)="updateAddress()">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-6>Address</ion-col>
+          <ion-col col-6>
+            {{ currentEvent?.eventAddress }}
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+
+    <ion-item (click)="updateDescription()">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-6>Description</ion-col>
+          <ion-col col-6>
+            {{ currentEvent?.description }}
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+
+    <ion-item (click)="updateGuests()">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-6>Guests</ion-col>
+          <ion-col col-6>
+            {{ currentEvent?.guests }}
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

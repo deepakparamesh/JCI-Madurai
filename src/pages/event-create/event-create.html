@@ -18,12 +18,13 @@
 
       <ion-item>
         <ion-label floating>Date</ion-label>
-        <ion-input type="text" formControlName="date" [(ngModel)]="event.eventDate" ></ion-input>
+        <ion-datetime displayFormat="DD MMM, YYYY" formControlName="date" pickerFormat="YYYY MMM DD" [(ngModel)]="event.eventDate">
+        </ion-datetime>
       </ion-item>
 
       <ion-item>
         <ion-label floating>Time</ion-label>
-        <ion-input type="text"  formControlName="time" [(ngModel)]="event.eventTime"></ion-input>
+        <ion-datetime displayFormat="h:mm A" formControlName="time" pickerFormat="h mm A" [(ngModel)]="event.eventTime"></ion-datetime>
       </ion-item>
 
       <ion-item>
