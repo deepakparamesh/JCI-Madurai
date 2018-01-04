@@ -8,27 +8,53 @@
 
 <ion-content padding>
 
-    <ion-card  >
-      <ion-card-header>{{currentEvent?.eventName}}</ion-card-header>
+    <ion-card>
       <ion-card-content>
-        <p>Date:
-          <strong>{{currentEvent?.eventDate}}</strong>
-        </p>
-        <p>Time:
-          <strong>{{currentEvent?.eventTime}}</strong>
-        </p>
-        <p>Place:
-            <strong>{{currentEvent?.eventPlace}}</strong>
-        </p>
-        <p>Address:
-            <strong>{{currentEvent?.eventAddress}}</strong>
-        </p>
-        <p>Description:
-            <strong>{{currentEvent?.description}}</strong>
-        </p>
-        <p>Guests:
-            <strong>{{currentEvent?.guests}}</strong>
-        </p>
+        <ion-card-title>{{currentEvent?.eventName}}</ion-card-title>
+  
+      <ion-grid>
+          <ion-row>
+            <ion-col col-6>
+                <ion-icon name="calendar"></ion-icon> &nbsp;
+                <strong> {{currentEvent?.eventDate}} </strong>
+            </ion-col>
+            <ion-col col-6>
+                <ion-icon name="time"></ion-icon> &nbsp;
+                <strong> {{currentEvent?.eventTime}} </strong>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col col-12>
+              <ion-icon name="locate"></ion-icon>&nbsp;
+              <strong>{{currentEvent?.eventPlace}}</strong>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col col-12>
+              <ion-icon name="navigate"></ion-icon> &nbsp;
+              <strong>{{currentEvent?.eventAddress}}</strong>
+            </ion-col>
+          </ion-row>
+
+          <img src="../../assets/imgs/1.jpg"/>
+          <br>
+          <ion-row>
+            <ion-col col-12>
+              <p>Description : </p>
+              <strong>{{currentEvent?.description}}</strong> 
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col col-12>
+              <ion-icon name="person"> &nbsp;
+                <strong>{{currentEvent?.guests}}</strong>
+              </ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
       </ion-card-content>
     </ion-card>
 
