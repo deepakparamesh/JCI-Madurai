@@ -63,7 +63,6 @@ import { EventListener } from '@angular/core/src/debug/debug_node';
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     IonicImageViewerModule
-    // EventDetailPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

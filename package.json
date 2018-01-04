@@ -1,8 +1,8 @@
 {
-  "name": "jci-madurai",
-  "version": "0.0.1",
+  "name": "JCI Madurai Admin",
+  "version": "1.0.0",
   "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "homepage": "http://geomeoinformatics.com/",
   "private": true,
   "scripts": {
     "clean": "ionic-app-scripts clean",
@@ -46,7 +46,7 @@
     "@ionic/app-scripts": "3.1.5",
     "typescript": "2.4.2"
   },
-  "description": "An Ionic project",
+  "description": "Admin application to control the event of the JCI Madurai Temple city application",
   "cordova": {
     "plugins": {
       "ionic-plugin-keyboard": {},
