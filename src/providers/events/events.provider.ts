@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import firebase from 'firebase';
 import { Events } from '../../models/events.model';
+import { updateDate } from 'ionic-angular/util/datetime-util';
 
 @Injectable()
 export class EventsProvider{
@@ -32,7 +33,11 @@ export class EventsProvider{
         return this.eventListRef.child(eventId).remove();
     }
 
-    eventDetails(eventId: string): firebase.database.Reference{
+    // eventDetails(eventId: string): firebase.database.Reference{
+    //     return this.eventListRef.child(eventId);
+    // }
+
+    eventDetails(eventId:string):firebase.database.Reference{
         return this.eventListRef.child(eventId);
     }
 
@@ -54,5 +59,13 @@ export class EventsProvider{
     
     updateGuests( eventId: string, eventGuests: string) : Promise<any>{
         return this.eventListRef.child(eventId).update({ guests: eventGuests});
+    }
+
+    updateDate(eventId:string, eventDate: string): Promise<any>{
+        return this.eventListRef.child(eventId).update({ eventDate: eventDate });
+    }
+
+    updateTime(eventId: string, updatedTime: string): Promise<any>{
+        return this.eventListRef.child(eventId).update({ eventTime : updatedTime});
     }
 }

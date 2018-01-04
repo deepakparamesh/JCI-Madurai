@@ -17,6 +17,7 @@ import { EventsProvider } from '../../providers/events/events.provider';
 export class EventEditPage {
   public currentEvent: any;
   public date: any;
+  public time: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public alertCtrl: AlertController, public eventsProvider: EventsProvider) {
@@ -24,9 +25,10 @@ export class EventEditPage {
 
   ionViewDidLoad() {
     this.eventsProvider.eventDetails(this.navParams.get('eventId'))
-      .on('value', eventSnapshot =>{
+      .on('value', eventSnapshot => {
         this.currentEvent = eventSnapshot.val();
-        this.date = eventSnapshot.val().date;
+        this.date = eventSnapshot.val().eventDate;
+        this.time = eventSnapshot.val().eventTime;
       });
   }
 
@@ -144,4 +146,13 @@ export class EventEditPage {
     });
     alert.present();
   }
+
+  updateDate(date:string): void {
+    this.eventsProvider.updateDate(this.navParams.get('eventId'), date);
+  }
+
+  updateTime(time : string): void {
+    this.eventsProvider.updateTime(this.navParams.get('eventId'), time);
+  }
+
 }

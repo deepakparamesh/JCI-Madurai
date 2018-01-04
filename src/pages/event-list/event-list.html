@@ -34,10 +34,10 @@
       </ion-col>
     </ion-row>
   </ion-card> -->
+  
   <ion-list>
     <ion-item *ngFor="let event of eventList" (click)="showOptions(event.id)">
       <h2>{{event?.eventName}}</h2>
-      
         <p>Date : <strong>{{event?.eventDate}}</strong></p>
         <p>Time: <strong>{{event?.eventTime}}</strong></p>
         <p>place : <strong>{{event?.eventPlace}}</strong></p>

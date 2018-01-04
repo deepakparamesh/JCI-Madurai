@@ -29,6 +29,6 @@
         </form>
     </ion-list>
       
-      <button ion-button color='primary' (click)="loginUser(user)">Login</button>
+      <button ion-button color='primary' (click)="loginUser(user)" [disabled]="!loginForm.valid">Login</button>
       <button ion-button color='light'(click)="registerPage()">Register</button>
 </ion-content>

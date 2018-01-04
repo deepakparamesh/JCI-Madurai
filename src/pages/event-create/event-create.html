@@ -1,10 +1,8 @@
 
 <ion-header>
-
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>Create Event</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 
@@ -18,7 +16,8 @@
 
       <ion-item>
         <ion-label floating>Date</ion-label>
-        <ion-datetime displayFormat="DD MMM, YYYY" formControlName="date" pickerFormat="YYYY MMM DD" [(ngModel)]="event.eventDate">
+        <ion-datetime displayFormat="DD MMM, YYYY" formControlName="date" pickerFormat="YYYY MMM DD" 
+        min="2018" max="2020-12-31" [(ngModel)]="event.eventDate">
         </ion-datetime>
       </ion-item>
 
@@ -34,12 +33,14 @@
 
       <ion-item>
         <ion-label floating>address</ion-label>
-        <ion-input type="text" formControlName="address"  [(ngModel)]="event.eventAddress"></ion-input>
+        <!-- <ion-input type="text" formControlName="address"  [(ngModel)]="event.eventAddress"></ion-input> -->
+        <ion-textarea type="text" formControlName="address"  [(ngModel)]="event.eventAddress" ></ion-textarea>
       </ion-item>
 
       <ion-item>
         <ion-label floating>Description</ion-label>
-        <ion-input type="text"  formControlName="description" [(ngModel)]="event.description"></ion-input>
+        <!-- <ion-input type="text"  formControlName="description" [(ngModel)]="event.description"></ion-input> -->
+        <ion-textarea type="text" formControlName="description" [(ngModel)]="event.description"></ion-textarea>
       </ion-item>
 
       <ion-item>

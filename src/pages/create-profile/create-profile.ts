@@ -9,7 +9,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { UserProfile } from '../../models/userProfile';
 
 //providers
-import { ProfileProvider } from '../../providers/profile/profile';
+import { ProfileProvider } from '../../providers/profile/profile.providers';
 import { TabsPage } from '../tabs/tabs';
 
 @IonicPage()

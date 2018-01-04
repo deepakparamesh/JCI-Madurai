@@ -38,7 +38,7 @@ export class AuthProvider{
         .then(newUser => {
             firebase
                 .database()
-                .ref(`/userProfile/${newUser.uid}/gmail`)
+                .ref(`/userProfile/${newUser.uid}/email`)
                 .set(user.email);
         })
         .catch(error =>{

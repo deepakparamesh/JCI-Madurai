@@ -8,8 +8,8 @@ import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/fo
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Users } from '../../models/users';
 import { AuthProvider } from '../../providers/auth/auth';
-import { HomePage } from '../home/home';
-import { CreateProfilePage } from '../create-profile/create-profile';
+import { TabsPage } from '../tabs/tabs';
+
 //validators
 import { CheckboxValidator } from '../../validators/checkbox';
 import { EmailValidator } from '../../validators/email-validator';
@@ -37,7 +37,8 @@ export class SignUpPage {
     this.signUpForm = formBuilder.group({
       email : ['', Validators.compose([Validators.required,  EmailValidator.isValid])],
       password: ['',Validators.compose([Validators.minLength(6), Validators.required])],
-      conditionsCheck : ['', Validators.compose([Validators.required, CheckboxValidator.isChecked])]
+      // conditionsCheck : ['', Validators.compose([ CheckboxValidator.isChecked])],
+      // testCondition: ['', Validators.compose([])]
       // confirmPassword : ['', Validators.compose([Validators.required, ConfirmPassword.isEqual])]
     }); 
 
@@ -56,7 +57,7 @@ export class SignUpPage {
         await loading.dismiss();
         // this.navCtrl.setRoot(HomePage);
         this.toastMessager('successfully registered!');
-        this.navCtrl.setRoot(CreateProfilePage);
+        this.navCtrl.setRoot(TabsPage);
       }catch(error){
         await loading.dismiss();
         this.toastMessager('email already exists');

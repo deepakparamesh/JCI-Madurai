@@ -6,6 +6,7 @@ import { IonicPage, NavController,ActionSheet,
 import { EventsProvider } from  '../../providers/events/events.provider';
 import { EventCreatePage } from '../event-create/event-create';
 import { EventEditPage } from '../event-edit/event-edit';
+import { EventDetailPage } from '../event-detail/event-detail';
 
 
 @IonicPage()
@@ -82,7 +83,8 @@ export class EventListPage {
         },
         {
           text: 'Event Details',
-          handler: ()=>{ console.log('details of the events are here');
+          handler: ()=>{
+            this.navCtrl.push(EventDetailPage,{ 'eventId': eventId })
           }
         }
       ]

@@ -17,6 +17,7 @@ export class ProfileProvider {
                  public afAuth: AngularFireAuth ){
         firebase.auth().onAuthStateChanged(user =>{
             if(user){
+                this.currentUser = user;
                 this.userProfileRef = firebase
                                     .database()
                                     .ref(`/userProfile/${user.uid}`);
@@ -43,6 +44,38 @@ export class ProfileProvider {
     //     })
     //   }
 
+    updateName( userName : string ) : Promise<any>{
+        return this.userProfileRef.update({ userName });
+    }
 
+    updatePhoneNumber ( phoneNumber : number ) : Promise<any>{
+        return this.userProfileRef.update({ phoneNumber });
+    }
+
+    // updateEmail( email : string ) : Promise<any>{
+    //     return this.userProfileRef.update({ email });
+    // }
+
+    updateEmail(newEmail: string, password: string): Promise<any>{
+        const credential = firebase.auth.EmailAuthProvider.credential(this.currentUser.email, password);
+        return this.currentUser.reauthenticateWithCredential(credential).then(user =>{
+            this.currentUser.updateEmail(newEmail).then(user => {
+                this.userProfileRef.update({ email: newEmail});
+            });
+        }).catch(error => {
+            console.error(error);
+        });
+    }
+
+    updatePassword(newPassword: string, oldPassword: string): Promise<any> {
+        const credential = firebase.auth.EmailAuthProvider.credential(this.currentUser.email, oldPassword);
+        return this.currentUser.reauthenticateWithCredential(credential).then( user => {
+            this.currentUser.updatePassword(newPassword).then(user =>{
+                console.log("password changed");
+            });
+        }).catch(error => {
+            console.error(error)
+        });
+    }
 }
 
