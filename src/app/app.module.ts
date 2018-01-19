@@ -29,6 +29,7 @@ import { EventCreatePage } from '../pages/event-create/event-create';
 import { EventEditPage } from '../pages/event-edit/event-edit';
 import { EventDetailPage } from '../pages/event-detail/event-detail';
 import { EventDetailPageModule } from '../pages/event-detail/event-detail.module';
+
 //providers
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
