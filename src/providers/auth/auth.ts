@@ -9,28 +9,6 @@ export class AuthProvider{
 
     user = {} as Users;
 
-    // async signupUser(user : Users): Promise<firebase.User>{
-    //     try {
-    //     const newUser : firebase.User = await  firebase
-    //     .auth()
-    //     .createUserWithEmailAndPassword(user.email, user.password)
-    //     .then(newuser => {
-    //         firebase
-    //         .database()
-    //         .ref(`/profile/${newuser.uid}/email`)
-    //         .set(user.email);
-    //     });
-    //     // await firebase
-    //     // .database()
-    //     // .ref(`/profile/${newUser.uid}/email`)
-    //     // .set(user.email);
-    //     return newUser;
-        
-    //     } catch(error){
-    //     throw error;
-    //       }
-    // }
-
     signupUser(user : Users) : Promise<void>{
         return firebase
         .auth()
